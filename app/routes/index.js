@@ -8,6 +8,14 @@ module.exports = function (app) {
     res.render('index');
   });
 
+  app.get('/categories/mens', function (req, res) {
+    res.render('categories/mens');
+  });
+
+  app.get('/categories/womans', function (req, res) {
+    res.render('categories/womans');
+  });
+
   app.use('/users', require('./UserRoutes'));
   // You can add others app.use with other route files
 

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 
-
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
     integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
@@ -12,43 +11,29 @@
 
 <body>
 
-  <%- include('header.ejs') %>
-
-
-  <div>
-    <p>Home</p>
-    <p>Welcome to Alibazon</p>
-    <p>more description here...</p>
-  </div>
-
-  <div>
+  <%- include('header.ejs')%>
+  <div class="conteiner">
     <div>
+      <p>Home</p>
+      <p>Welcome to Alibazon</p>
+      <p>more description here...</p>
+    </div>
+
+    <div class="jumbotron">
       <img src="" alt="Men's Clothing Image">
       <p>Men's Clothing Image text</p>
-      <button>View Products</button>
+      <div><a href="categories/mens">View Products</a></div>
     </div>
 
-    <div>
+    <div class="jumbotron">
       <img src="" alt="Woman's Clothing Image">
       <p>Woman's Clothing Image text</p>
-      <button>View Products</button>
+      <div><a href="/categories/womans/index.ejs">View Products</a></div>
     </div>
 
+    <%- include('footer.ejs')%>
   </div>
 
-  <div>
-    <!-- Footer -->
-    <footer class="page-footer font-small blue fixed-bottom">
-
-      <!-- Copyright -->
-      <div class="footer-copyright text-center py-3">© 2020 Copyright:
-        <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
-      </div>
-      <!-- Copyright -->
-
-    </footer>
-    <!-- Footer -->
-  </div>
 
 
 
