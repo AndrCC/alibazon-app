@@ -12,9 +12,19 @@ module.exports = function (app) {
     res.render('categories/mens');
   });
 
+  app.get('/categories/mens/mens-clothing', function (req, res) {
+    res.render('categories/mens/mens-clothing');
+  });
+
+  app.get('/products/mens', function (req, res) {
+    res.render('products/mens/product1.ejs');
+  });
+
   app.get('/categories/womans', function (req, res) {
     res.render('categories/womans');
   });
+
+
 
   app.use('/users', require('./UserRoutes'));
   // You can add others app.use with other route files
