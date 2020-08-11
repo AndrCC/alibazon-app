@@ -1,35 +1,22 @@
 module.exports = function (app) {
 
-  // app.get('index.ejs', (req, res) => {
-  //   res.send('Welcome to OSF Academy Backend Starter Kit. Have Fun! teste1')
-  // });
+  const CategoriesController = require('../controllers/CategoriesController')
+  const ProductsController = require('../controllers/ProductsController')
 
+  //Home
   app.get('/', function (req, res) {
     res.render('index');
   });
 
-  app.get('/categories/mens', function (req, res) {
-    res.render('categories/mens');
-  });
+  //Categories
+  app.get('/categories/mens', CategoriesController.mensIndex);
+  app.get('/categories/womans', CategoriesController.womansIndex);
+  app.get('/categories/mens/mens-clothing', CategoriesController.mensClothingIndex);
+  app.get('/categories/womans/womans-clothing', CategoriesController.womansClothingIndex);
 
-  app.get('/categories/mens/mens-clothing', function (req, res) {
-    res.render('categories/mens/mens-clothing');
-  });
-
-  app.get('/products/mens', function (req, res) {
-    res.render('products/mens/product1.ejs');
-  });
-
-  app.get('/categories/womans', function (req, res) {
-    res.render('categories/womans');
-  });
-
-
-
-  app.use('/users', require('./UserRoutes'));
-  // You can add others app.use with other route files
-
-
+  //Products
+  app.get('/products/mens', ProductsController.mensProducts);
+  app.get('/products/womans', ProductsController.womansProducts);
 
   // fallthrough error handler
   app.use(function onError(err, req, res, next) {
