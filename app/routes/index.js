@@ -18,6 +18,7 @@ module.exports = function (app) {
   app.get('/products/mens', ProductsController.mensProducts);
   app.get('/products/womans', ProductsController.womansProducts);
 
+
   // fallthrough error handler
   app.use(function onError(err, req, res, next) {
     // The error id is attached to `res.sentry` to be returned
