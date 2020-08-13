@@ -1,11 +1,21 @@
 module.exports = function (app) {
+  const fetch = require("node-fetch");
 
   const CategoriesController = require('../controllers/CategoriesController')
   const ProductsController = require('../controllers/ProductsController')
 
+  const url = "https://osf-digital-backend-academy.herokuapp.com/api//categories/mens?secretKey=%242a%2408%245YaaU3vMXpnFBA21qgPEYOHd1gCzqgpWrm82TznzvLlIm3jN3dgom"
+
+  async function getAllCategories() {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data
+  }
+
   //Home
   app.get('/', function (req, res) {
-    res.render('index');
+    const data1 = getAllCategories()
+    res.render('index', { data1: data1 });
   });
 
   //Categories

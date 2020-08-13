@@ -5,3 +5,4 @@ exports.mensProducts = function (req, res) {
 exports.womansProducts = function (req, res) {
     res.render('products/womans');
 }
+
