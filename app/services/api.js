@@ -20,11 +20,11 @@ exports.getRootCategories = async root => {
     }
 }
 
-exports.getSingleCategory = async id => {
+exports.getSingleCategory = async input => {
     try {
-        const response = await fetch(`https://osf-digital-backend-academy.herokuapp.com/api//categories/${id}?secretKey=%242a%2408%245YaaU3vMXpnFBA21qgPEYOHd1gCzqgpWrm82TznzvLlIm3jN3dgom`);
-        const singleCategories = await response.json();
-        return singleCategories;
+        const response = await fetch(`https://osf-digital-backend-academy.herokuapp.com/api//categories/${input}?secretKey=%242a%2408%245YaaU3vMXpnFBA21qgPEYOHd1gCzqgpWrm82TznzvLlIm3jN3dgom`);
+        const singleCategorie = await response.json();
+        return singleCategorie;
     } catch (error) {
         throw error
     }

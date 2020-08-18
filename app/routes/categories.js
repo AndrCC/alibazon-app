@@ -1,6 +1,7 @@
-module.exports = function (app) {
-    const { getCategories } = require('/controllers/categoriesController');
+const express = require('express');
+const router = express.Router();
+const { getCategories } = require('../controllers/categories');
 
+router.get('/:id', getCategories);
 
-    app.get('/:id', getCategories);
-}
+module.exports = router;

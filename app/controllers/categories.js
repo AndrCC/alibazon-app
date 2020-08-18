@@ -1,7 +1,7 @@
 const asyncWrapper = require('../util/asyncWrapper');
 const getDirname = require('../util/getDirname');
 const path = require('path');
-const { getAllCategories, getSingleCategory } = require('../services/api');
+const { getAllCategories, getSingleCategory, getRootCategories } = require('../services/api');
 
 
 
@@ -10,6 +10,8 @@ exports.getCategories = asyncWrapper(async (req, res) => {
     const mainCategorySlug = req.params.id;
     const mainCategory = await getSingleCategory(mainCategorySlug);
 
+
+    //const categories = mainCategorySlug ? await getRootCategories(mainCategorySlug) : await getAllCategories();
 
     let categories = await getAllCategories();
 
@@ -39,4 +41,6 @@ exports.getCategories = asyncWrapper(async (req, res) => {
     }
 
     res.render(path.join(getDirname(), 'views', 'products', 'categories'), { mainCategory, categories });
+    //res.status(200).render('views/products/categories', { mainCategory, categories });
+
 });

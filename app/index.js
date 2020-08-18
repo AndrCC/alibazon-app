@@ -1,27 +1,27 @@
 const express = require('express');
-const path = require('path');
-const ejs = require('ejs');
 //const Sentry = require('@sentry/node');
-
-
-//Sentry.init({ dsn: 'https://5ef81c11afad4b80892bce85ba11462d@o433260.ingest.sentry.io/5388033' });
-//app.use(Sentry.Handlers.requestHandler());
+const path = require('path');
+const homeRoute = require('./routes/index');
+const categoriesRoute = require('./routes/categories');
+const productsRoute = require('./routes/products');
 
 const app = express();
 
-require('./routes')(app);
-
+//configure express
 app.set('views', path.join(__dirname, 'views'));
+
 app.set('view engine', 'ejs');
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, 'public')));
 
-
-//app.use(Sentry.Handlers.requestHandler());
+//routes
+app.use('/', homeRoute);
+app.use('/categories', categoriesRoute);
+app.use('/products', productsRoute)
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Our app is running on port ${PORT}`);
 });
 
-module.exports = app;
+//module.exports = app;

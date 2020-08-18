@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+        integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="https://kit.fontawesome.com/71bb237577.js" crossorigin="anonymous"></script>
+    <title>Alibazon</title>
+</head>
+
+<body>
+    <div class="conteiner">
+        <%- include('../header.ejs')%>
+        <% if (mainCategory) { %>
+        <div>
+            <h2><%= mainCategory.page_title %></h2>
+            <p><%= mainCategory.page_description %></p>
+        </div>
+        <% } %>
+
+        <h3>Categories</h3>
+
+        <% categories.forEach(cat => { %>
+        <div class="jumbotron">
+            <h1 class="display-4"><%= cat.name %></h1>
+            <p class="lead">
+                <%= cat.page_description %>
+            </p>
+            <hr class="my-4" />
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="/products/<%= cat.id %> " role="button">View Products</a>
+            </p>
+        </div>
+        <% }) %>
+
+        <%- include('../footer.ejs')%>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"
+        integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
