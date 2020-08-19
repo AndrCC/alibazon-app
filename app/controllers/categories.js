@@ -3,9 +3,6 @@ const getDirname = require('../util/getDirname');
 const path = require('path');
 const { getAllCategories, getSingleCategory, getRootCategories } = require('../services/api');
 
-
-
-
 exports.getCategories = asyncWrapper(async (req, res) => {
     const mainCategorySlug = req.params.id;
     const mainCategory = await getSingleCategory(mainCategorySlug);

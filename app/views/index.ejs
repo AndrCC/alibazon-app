@@ -21,6 +21,7 @@
 
     <% categories.forEach(cat => { %>
     <div class="jumbotron">
+      <img src="/images/<%= cat.image %>" class="img-fluid" alt="Responsive image">
       <h1 class="display-4"><%= cat.name %></h1>
       <p class="lead">
         <%= cat.page_description %>

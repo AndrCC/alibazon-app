@@ -12,28 +12,28 @@
 <body>
     <div class="conteiner">
         <%- include('../header.ejs')%>
-        <% if (mainCategory) { %>
-        <div>
-            <h2><%= mainCategory.page_title %></h2>
-            <p><%= mainCategory.page_description %></p>
+        <div class="card">
+            <div class="container-fliud">
+                <div class="wrapper row">
+                    <div class="details col-md-6">
+                        <img class="card-img-top" src="/images/<%= product.image_groups[0].images[0].link %>"
+                            alt="Card image cap">
+                    </div>
+                    <div class="details col-md-6">
+
+                        <h3><%= product.name %></h3>
+
+                        <p class="product-description"><%- product.long_description %></p>
+                        <h4 class="price"><%= product.price %> <%= product.currency %></h4>
+
+
+                        <div class="col">
+                            <a href="" class="btn btn-success btn-block">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <% } %>
-
-        <h3>Categories</h3>
-
-        <% categories.forEach(cat => { %>
-        <div class="jumbotron">
-            <img src="/images/<%= cat.image %>" class="img-fluid" alt="Responsive image">
-            <p class="lead">
-                <%= cat.page_description %>
-            </p>
-            <hr class="my-4" />
-            <p class="lead">
-                <a class="btn btn-primary btn-lg" href="/products/<%= cat.id %> " role="button">View Products</a>
-            </p>
-        </div>
-        <% }) %>
-
         <%- include('../footer.ejs')%>
     </div>
 
