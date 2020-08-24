@@ -1,8 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const { getSignUp, getSignIn } = require('../controllers/auth');
+const { check } = require('express-validator');
+const { getSignUp, postSignUp, getSignIn } = require('../controllers/auth');
 
 router.get('/signup', getSignUp);
+router.post('/signup', [
+    check('name').trim().isLength({ min: 6 }),
+    check('email').trim().isEmail(),
+    check('password').trim().isLength({ min: 6 })
+], postSignUp);
+
+
 router.get('/signin', getSignIn);
 
 module.exports = router;

@@ -14,22 +14,23 @@
 <body class="text-center">
     <%- include('../header.ejs')%>
 
-    <form class="form-signin" method="POST" action="/auth/signin">
+    <form class="form-signup" method="POST" action="/auth/signup">
         <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72"
             height="72">
         <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
-        <label for="inputEmail" class="sr-only">Name</label>
-        <input type="text" id="inputName" class="form-control" placeholder="Name" required>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <label for="name" class="sr-only">Name</label>
+        <input type="text" minlength="6" id="name" name="name" class="form-control" placeholder="Name" required>
+        <label for="email" class="sr-only">Email address</label>
+        <input type="email" minlength="6" id="email" name="email" class="form-control" placeholder="Email address"
+            required>
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" minlength="6" id="password" class="form-control" placeholder="Password" required>
         <div class="checkbox mb-3">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me
             </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button minlength="6" class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
         <h6 class="card-title">Already have an account? <a href="/auth/signin">SignIn</a></h6>
     </form>
 </body>
