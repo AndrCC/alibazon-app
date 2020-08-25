@@ -5,6 +5,8 @@ const homeRoute = require('./routes/index');
 const categoriesRoute = require('./routes/categories');
 const productsRoute = require('./routes/products');
 const authRoute = require('./routes/auth');
+const isAuthenthicatedHandler = require('./util/isAuthenthicated');
+
 
 const app = express();
 
@@ -20,6 +22,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(Sentry.Handlers.requestHandler());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(isAuthenthicatedHandler);
+
 
 //routes
 app.use('/', homeRoute);
