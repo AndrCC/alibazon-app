@@ -42,8 +42,8 @@ exports.getUser = (req, res) => {
     if (req.cookies.accountInfo) {
         let { user } = req.cookies.accountInfo;
         userInfo = user;
-        const tempDate = new Date(user.createdAt);
-        userInfo.createdAt = tempDate.toDateString()
+        // const tempDate = new Date(user.createdAt);
+        // userInfo.createdAt = tempDate.toDateString()
     }
-    res.render(path.join(getDirname(), 'views', 'auth', 'user'), { user: userInfo });
+    res.render(path.join(getDirname(), 'views', 'auth', 'user'), { userInfo });
 }

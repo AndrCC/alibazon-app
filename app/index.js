@@ -1,6 +1,9 @@
 const express = require('express');
 const Sentry = require('@sentry/node');
 const path = require('path');
+const cookieParser = require('cookie-parser');
+
+
 const homeRoute = require('./routes/index');
 const categoriesRoute = require('./routes/categories');
 const productsRoute = require('./routes/products');
@@ -22,7 +25,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(Sentry.Handlers.requestHandler());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookieParser());
 app.use(isAuthenthicatedHandler);
+
 
 
 //routes
