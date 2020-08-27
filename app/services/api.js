@@ -1,5 +1,7 @@
 const fetch = require("node-fetch");
 
+//change to axios
+
 exports.getAllCategories = async () => {
     try {
         const response = await fetch(`https://osf-digital-backend-academy.herokuapp.com/api//categories?secretKey=%242a%2408%245YaaU3vMXpnFBA21qgPEYOHd1gCzqgpWrm82TznzvLlIm3jN3dgom`);

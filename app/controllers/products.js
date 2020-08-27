@@ -23,3 +23,19 @@ exports.getProduct = asyncWrapper(async (req, res) => {
     const [product] = await getSingleProduct(productId);
     res.render(path.join(getDirname(), 'views', 'products', 'product-details'), { product });
 });
+
+exports.getSearchProducts = asyncWrapper(async (req, res) => {
+    const { searchText } = req.query;
+    let products = [];
+    const categories = await getAllCategories();
+
+    if (searchText) {
+        const returnedCat = categories.page_description;
+        products = await getProductsFromSubcategory(returnedCat.id);
+
+    }
+    res.render(
+        path.join(getDirname(), 'views', 'products', 'products-search'),
+        { products }
+    );
+});
