@@ -2,7 +2,7 @@ const asyncWrapper = require('../util/asyncWrapper');
 const getDirname = require('../util/getDirname');
 const { validationResult, Result } = require('express-validator');
 const path = require('path');
-const { signUp, signIn } = require('../services/authApi');
+const { signUp, signIn, getCartFromAPI } = require('../services/authApi');
 
 exports.getSignUp = (req, res, next) => {
     res.render(path.join(getDirname(), 'views', 'auth', 'signup'));
@@ -47,3 +47,18 @@ exports.getUser = (req, res) => {
     }
     res.render(path.join(getDirname(), 'views', 'auth', 'user'), { userInfo });
 }
+
+exports.getCart = asyncWrapper(async (req, res) => {
+
+    const { user, token } = req.cookies.accountInfo;
+
+    const cart = await getCartFromAPI(token);
+
+    if (user._id !== cart.userId) throw customError(401, 'You are not authorized to view this content');
+
+    //const total = cart.items.reduce((acc, i) => acc + (Number(i.variant.price) * Number(i.quantity)), 0);
+
+    //const session = await stripeMiddleware(req, cart.items);
+
+    res.render(path.join(getDirname(), 'views', 'auth', 'cart'), { cart });
+});

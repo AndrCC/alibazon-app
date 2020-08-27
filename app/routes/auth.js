@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { check } = require('express-validator');
-const { getSignUp, postSignUp, getSignIn, postSignIn, getUser } = require('../controllers/auth');
+const { getSignUp, postSignUp, getSignIn, postSignIn, getUser, getCart } = require('../controllers/auth');
 
 router.get('/signup', getSignUp);
 router.post('/signup', [
@@ -18,6 +18,8 @@ router.post('/signin', [
 ], postSignIn);
 
 router.get('/user', getUser);
+
+router.get('/cart', getCart);
 
 
 module.exports = router;
