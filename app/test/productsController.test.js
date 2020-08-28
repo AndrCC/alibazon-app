@@ -21,7 +21,7 @@ describe('Products Controller', function () {
       const req = {
         params: {
           id: 1,
-          categoryId: 'masdasdaens'
+          categoryId: 'invalidtext'
         }
 
       };
@@ -36,7 +36,7 @@ describe('Products Controller', function () {
     it('should throw an error if categoryId is invalid', function (done) {
       const req = {
         params: {
-          categoryId: 'masdasdsdfaens'
+          categoryId: 'invalidtext'
         }
 
       };

@@ -9,31 +9,26 @@ const {
 } = require('../services/api');
 
 exports.getProducts = asyncWrapper(async (req, res) => {
-    const subcategory = req.params.categoryId || 'all';
-    //const page = req.query.page || 1;
+    const subcategory = req.params.categoryId;
 
-    const products = subcategory === 'all' ? await getAllProducts() : await getProductsFromSubcategory(subcategory);
+    const products = await getProductsFromSubcategory(subcategory);
 
     res.render(
         path.join(getDirname(), 'views', 'products', 'product-list'), { products, subcategory });
 })
 
 exports.getProduct = asyncWrapper(async (req, res) => {
-    const productId = req.params.id;
-    const [product] = await getSingleProduct(productId);
+    const [product] = await getSingleProduct(req.params.id);
     res.render(path.join(getDirname(), 'views', 'products', 'product-details'), { product });
 });
 
+//It's not working yet...
 exports.getSearchProducts = asyncWrapper(async (req, res) => {
-    const { searchText } = req.query;
-    let products = [];
-    const categories = await getAllCategories();
+    const searchText = req.query;
+    //const categories = await getAllCategories();
+    const [products] = await getAllProducts(searchText);
+    //const products = searchText === allProducts.name;
 
-    if (searchText) {
-        const returnedCat = categories.page_description;
-        products = await getProductsFromSubcategory(returnedCat.id);
-
-    }
     res.render(
         path.join(getDirname(), 'views', 'products', 'products-search'),
         { products }

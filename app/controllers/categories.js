@@ -6,10 +6,6 @@ const { getAllCategories, getSingleCategory, getRootCategories } = require('../s
 exports.getCategories = asyncWrapper(async (req, res) => {
     const mainCategorySlug = req.params.id;
     const mainCategory = await getSingleCategory(mainCategorySlug);
-
-
-    //const categories = mainCategorySlug ? await getRootCategories(mainCategorySlug) : await getAllCategories();
-
     let categories = await getAllCategories();
 
     const m = /^mens$/;

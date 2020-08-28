@@ -19,7 +19,7 @@ router.post('/signin', [
 
 router.get('/user', getUser);
 
-router.get('/cart', getCart);
+//router.get('/cart', getCart);
 
 
 module.exports = router;
