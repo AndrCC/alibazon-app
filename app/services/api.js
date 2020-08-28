@@ -30,9 +30,9 @@ exports.getSingleCategory = async input => {
     }
 }
 
-exports.getAllProducts = async (searchText) => {
+exports.getAllProducts = async () => {
     try {
-        const response = await fetch(`https://osf-digital-backend-academy.herokuapp.com/api//products/product_search=${searchText}?secretKey=%242a%2408%245YaaU3vMXpnFBA21qgPEYOHd1gCzqgpWrm82TznzvLlIm3jN3dgom`);
+        const response = await fetch(`https://osf-digital-backend-academy.herokuapp.com/api//products/product_search=?secretKey=%242a%2408%245YaaU3vMXpnFBA21qgPEYOHd1gCzqgpWrm82TznzvLlIm3jN3dgom`);
         const allProducts = await response.json();
         return allProducts;
     } catch (error) {

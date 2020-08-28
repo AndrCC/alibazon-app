@@ -14,9 +14,7 @@
     <%- include('header.ejs')%>
 
     <div>
-      <p>Home</p>
       <p>Welcome to Alibazon</p>
-      <p>more description here...</p>
     </div>
 
     <% categories.forEach(cat => { %>
@@ -27,10 +25,7 @@
         <%= cat.page_description %>
       </p>
       <hr class="my-4" />
-      <p>
-        It uses utility classes for typography and spacing to space content
-        out within the larger container.
-      </p>
+
       <p class="lead">
         <a class="btn btn-primary btn-lg" href="/categories/<%= cat.id %>">View Categorie</a>
       </p>

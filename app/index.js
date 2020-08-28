@@ -7,7 +7,7 @@ const categoriesRoute = require('./routes/categories');
 const productsRoute = require('./routes/products');
 const authRoute = require('./routes/auth');
 const isAuthenthicatedHandler = require('./util/isAuthenthicated');
-
+const breadcrumbs = require('./util/breadcrumbs');
 
 const app = express();
 
@@ -21,12 +21,11 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(Sentry.Handlers.requestHandler());
+app.use(breadcrumbs);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(isAuthenthicatedHandler);
-
-
 
 //routes
 app.use('/', homeRoute);
@@ -39,4 +38,5 @@ app.listen(PORT, () => {
   console.log(`Our app is running on port ${PORT}`);
 });
 
+//For tests
 module.exports = app;

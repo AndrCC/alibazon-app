@@ -2,7 +2,7 @@ const asyncWrapper = require('../util/asyncWrapper');
 const getDirname = require('../util/getDirname');
 const { validationResult, Result } = require('express-validator');
 const path = require('path');
-const { signUp, signIn, getCartFromAPI } = require('../services/authApi');
+const { signUp, signIn } = require('../services/authApi');
 
 exports.getSignUp = (req, res, next) => {
     res.render(path.join(getDirname(), 'views', 'auth', 'signup'));
@@ -19,7 +19,6 @@ exports.postSignUp = asyncWrapper(async (req, res) => {
     res.redirect('/');
 
 });
-
 
 exports.getSignIn = (req, res, next) => {
     res.render(path.join(getDirname(), 'views', 'auth', 'signin'));
@@ -42,8 +41,8 @@ exports.getUser = (req, res) => {
     if (req.cookies.accountInfo) {
         let { user } = req.cookies.accountInfo;
         userInfo = user;
-        // const tempDate = new Date(user.createdAt);
-        // userInfo.createdAt = tempDate.toDateString()
+        const tempDate = new Date(user.createdAt);
+        userInfo.createdAt = tempDate.toDateString()
     }
     res.render(path.join(getDirname(), 'views', 'auth', 'user'), { userInfo });
 }

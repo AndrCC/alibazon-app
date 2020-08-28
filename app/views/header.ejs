@@ -44,3 +44,14 @@
     </ul>
   </div>
 </nav>
+<div>
+  <% if(breadcrumbs) { %>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <% breadcrumbs.forEach( bc => { %>
+      <li class="breadcrumb-item">
+        <a href="/<%= bc.url %>"><%= bc.name %></a>
+      </li>
+      <% }) %>
+      <% } %>
+</div>

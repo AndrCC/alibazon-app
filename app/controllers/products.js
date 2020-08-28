@@ -23,14 +23,14 @@ exports.getProduct = asyncWrapper(async (req, res) => {
 });
 
 //It's not working yet...
-exports.getSearchProducts = asyncWrapper(async (req, res) => {
-    const searchText = req.query;
-    //const categories = await getAllCategories();
-    const [products] = await getAllProducts(searchText);
-    //const products = searchText === allProducts.name;
+// exports.getSearchProducts = asyncWrapper(async (req, res) => {
+//     const searchText = req.query;
+//     //const categories = await getAllCategories();
+//     const [products] = await getAllProducts(searchText);
+//     //const products = searchText === allProducts.name;
 
-    res.render(
-        path.join(getDirname(), 'views', 'products', 'products-search'),
-        { products }
-    );
-});
+//     res.render(
+//         path.join(getDirname(), 'views', 'products', 'products-search'),
+//         { products }
+//     );
+// });
