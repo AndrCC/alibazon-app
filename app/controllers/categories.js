@@ -34,6 +34,5 @@ exports.getCategories = asyncWrapper(async (req, res) => {
     }
 
     res.render(path.join(getDirname(), 'views', 'products', 'categories'), { mainCategory, categories });
-    //res.status(200).render('views/products/categories', { mainCategory, categories });
 
 });

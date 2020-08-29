@@ -1,3 +1,5 @@
+//Its showing the full path on the view.
+//So not every link its working.
 get_breadcrumbs = function (url) {
     var rtn = [{ name: "HOME", url: "/" }],
         acc = "", // accumulative url

@@ -2,6 +2,7 @@ const express = require('express');
 const Sentry = require('@sentry/node');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+
 const homeRoute = require('./routes/index');
 const categoriesRoute = require('./routes/categories');
 const productsRoute = require('./routes/products');

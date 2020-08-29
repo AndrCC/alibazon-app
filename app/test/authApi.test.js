@@ -1,8 +1,7 @@
 const { expect } = require('chai');
 const {
   signUp,
-  signIn,
-  getCartFromAPI
+  signIn
 } = require('../services/authApi');
 
 describe('Auth Api', function () {

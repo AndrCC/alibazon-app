@@ -10,7 +10,6 @@ const {
 
 exports.getProducts = asyncWrapper(async (req, res) => {
     const subcategory = req.params.categoryId;
-
     const products = await getProductsFromSubcategory(subcategory);
 
     res.render(
@@ -22,15 +21,3 @@ exports.getProduct = asyncWrapper(async (req, res) => {
     res.render(path.join(getDirname(), 'views', 'products', 'product-details'), { product });
 });
 
-//It's not working yet...
-// exports.getSearchProducts = asyncWrapper(async (req, res) => {
-//     const searchText = req.query;
-//     //const categories = await getAllCategories();
-//     const [products] = await getAllProducts(searchText);
-//     //const products = searchText === allProducts.name;
-
-//     res.render(
-//         path.join(getDirname(), 'views', 'products', 'products-search'),
-//         { products }
-//     );
-// });

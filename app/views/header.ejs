@@ -1,57 +1,83 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">Alibazon</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<!DOCTYPE html>
+<html lang="en">
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <!-- <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li> -->
-      <li class="nav-item">
-        <a class="nav-link" href="/categories/mens">Men's Clothing</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/categories/womens">Woman's Clothing</a>
-      </li>
-    </ul>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+    integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <script src="https://kit.fontawesome.com/71bb237577.js" crossorigin="anonymous"></script>
 
-    <form class="form-inline my-2 my-lg-0" action="/products/search" method="GET">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search your products" aria-label="Search" />
-      <button class="btn btn-outline-success my-2 my-sm-0">
-        Search
+  <title>Alibazon</title>
+</head>
+
+<body>
+  <div class="conteiner-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">AliBazon</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
-    </form>
 
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="/auth/signin">Sign in</a>
-      </li>
-    </ul>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
 
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="/auth/user">User</a>
-      </li>
-    </ul>
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/mens">Men's Clothing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/womens">Woman's Clothing</a>
+          </li>
+        </ul>
 
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="/auth/cart"><i class="fas fa-shopping-cart"></i> Cart</a>
-      </li>
-    </ul>
+        <form class="form-inline my-2 my-lg-0" action="/products/search" method="GET">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search your products" aria-label="Search" />
+          <button class="btn btn-outline-success my-2 my-sm-0">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/auth/signin">Sign in</a>
+          </li>
+        </ul>
+
+
+
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/auth/cart"><i class="fas fa-shopping-cart"></i> Cart</a>
+          </li>
+        </ul>
+      </div>
+      <div class="float-xs-right">
+        <ul class="nav float-xs-right">
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, User <b
+                class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="/auth/user"><i class="fas fa-user"></i> User Info</a></li>
+              <li class="dropdown-divider"></li>
+              <li><a href="/auth/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div>
+      <% if(breadcrumbs) { %>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <% breadcrumbs.forEach( bc => { %>
+          <li class="breadcrumb-item">
+            <a href="/<%= bc.url %>"><%= bc.name %></a>
+          </li>
+          <% }) %>
+          <% } %>
+    </div>
   </div>
-</nav>
-<div>
-  <% if(breadcrumbs) { %>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <% breadcrumbs.forEach( bc => { %>
-      <li class="breadcrumb-item">
-        <a href="/<%= bc.url %>"><%= bc.name %></a>
-      </li>
-      <% }) %>
-      <% } %>
-</div>
+
+
+</body>
+
+</html>

@@ -5,9 +5,7 @@ const should = chai.should();
 
 chai.use(chaiHttp);
 
-// Test suite
 describe('homepage', () => {
-    // Test spec (unit test)
     it('Should show the homepage', (done) => {
         chai.request(app)
             .get('/')

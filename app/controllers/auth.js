@@ -4,6 +4,7 @@ const { validationResult, Result } = require('express-validator');
 const path = require('path');
 const { signUp, signIn } = require('../services/authApi');
 
+//Sign In and Sign Up Controllers
 exports.getSignUp = (req, res, next) => {
     res.render(path.join(getDirname(), 'views', 'auth', 'signup'));
 }
@@ -36,6 +37,7 @@ exports.postSignIn = asyncWrapper(async (req, res) => {
 
 });
 
+//User Controller
 exports.getUser = (req, res) => {
     let userInfo = {};
     if (req.cookies.accountInfo) {
@@ -47,4 +49,8 @@ exports.getUser = (req, res) => {
     res.render(path.join(getDirname(), 'views', 'auth', 'user'), { userInfo });
 }
 
-
+//Logout Controller
+exports.logout = (req, res) => {
+    res.clearCookie('accountInfo');
+    res.redirect('/');
+}
